@@ -37,18 +37,20 @@ Recall / Sensitivity / True Positive Rate (TPR): This is an indicator of the num
 
 Where:
 
-TP=True Positive
-FP=False Positive
-TN=True Negative
-FN=False Negative
+* TP=True Positive
+* FP=False Positive
+* TN=True Negative
+* FN=False Negative
+
 Your submission file should look like:
 
 Where 1 indicates that a customer will order from that restaurant and 0 that they will not order from that restaurant.
 
-CID X LOC_NUM X VENDOR     target
-A7B8IGM X 0 X 105            0
-NS70FA9 X 0 X 105            1
-WTWOE69 X 0 X 105            0
+|CID X LOC_NUM X VENDOR |    target                    |
+|-----------------------|:-----------------------------|
+|A7B8IGM X 0 X 105      |     0
+|NS70FA9 X 0 X 105      |      1
+|WTWOE69 X 0 X 105      |      0
 
 ## Rules
 
