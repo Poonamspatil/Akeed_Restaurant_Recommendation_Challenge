@@ -48,9 +48,31 @@ Where 1 indicates that a customer will order from that restaurant and 0 that the
 
 |CID X LOC_NUM X VENDOR |    target                    |
 |-----------------------|:-----------------------------|
-|A7B8IGM X 0 X 105      |     0
+|A7B8IGM X 0 X 105      |      0
 |NS70FA9 X 0 X 105      |      1
 |WTWOE69 X 0 X 105      |      0
+
+## Helpful hints in the discussion board
+
+For preparing test data, the hint is in sample submission. Drop duplicates for test customers. Merge test customer and location and then, for each row of test add all rows of vendors. Then create the id column using the three columns mentioned in the name of sample submission id. Try to make the number of rows in the test similar to sample submission.
+
+Follow the same steps for the train. This should get you started.
+
+"Orders"- Use it to make target. If ID of train is present in orders then target is 1..if not then 0
+
+look at the data before writing. test customer CSV has nothing to do with restaurants. it is all information about customer. And when you finally spend some time with data you will realise the same customer has a verified and and unverified detail which should be removed. As you won't get same number of rows as sample submission. But again for this you have to spend time with the data before commenting.
+
+Hi Suraj, Yes. But full test customer detail is obtained when you merge test customer and test location, after removing duplicates as I have mentioned. After merging if you find set intersection of merged ID and submission file, you will get all IDs of the sample in the test.
+
+The locations have been obscured, in a fairly reasonable way. However, the data as it arrived from the real world had all sorts of complications - sometimes latitude and longitude were the same value, sometimes they were both 0 (which got mapped by the processing to a weird coordinate)... If this happened on a job you'd likely ask for a meeting with the app/database folks to have a chat about how mangled the locations are! As it is this is all we've got :)
+
+As Flitx mentioned, you could try to use other features. But we included this in case it's possible to get something useful. I'd suggest maybe clustering and excluding the glitchy values somehow, or doing as you've done and just looking at a vendor_distance feature but again excluding anything unreasonable. Might still have some predictive power.
+
+The workaround is to treat this like a cold-visitor recommendation. Try to cluster customers based on features they have in common, then recommend the most popular restaurants in train for the customers in test in the same cluster.
+
+Another way is to treat it strictly as a classification problem.
+
+
 
 ## Rules
 
