@@ -54,24 +54,29 @@ Where 1 indicates that a customer will order from that restaurant and 0 that the
 
 ## Helpful hints in the discussion board
 
-For preparing test data, the hint is in sample submission. Drop duplicates for test customers. Merge test customer and location and then, for each row of test add all rows of vendors. Then create the id column using the three columns mentioned in the name of sample submission id. Try to make the number of rows in the test similar to sample submission.
+For preparing test data, the hint is in sample submission. Drop duplicates for test customers. Merge test customer and location and then, for each row of test add all rows of vendors. Then create the id column using the three columns mentioned in the name of sample submission id. Try to make the number of rows in the test similar to sample submission.Follow the same steps for the train. This should get you started.
 
-Follow the same steps for the train. This should get you started.
+Q) And what about "orders"?
 
-"Orders"- Use it to make target. If ID of train is present in orders then target is 1..if not then 0
+A) "Orders"- Use it to make target. If ID of train is present in orders then target is 1..if not then 0
 
-look at the data before writing. test customer CSV has nothing to do with restaurants. it is all information about customer. And when you finally spend some time with data you will realise the same customer has a verified and and unverified detail which should be removed. As you won't get same number of rows as sample submission. But again for this you have to spend time with the data before commenting.
+Q) Hi, I don't see why duplicate customers have to be ruled out ... the fact that it is duplicate is because the same customer is in another restaurant. If we eliminate the duplicates then we are going to predict the probability only in a restaurant. Another thing that is not clear to me in your methodology is the assessment ("vendor_rating") ... finally, collaborative filters, for example, make use of these metrics to obtain similarity matrices. PS: In fact, I'm not quite sure if it is necessary to get a binary variable (0 and 1) as target ... Regards.
 
-Hi Suraj, Yes. But full test customer detail is obtained when you merge test customer and test location, after removing duplicates as I have mentioned. After merging if you find set intersection of merged ID and submission file, you will get all IDs of the sample in the test.
+A) look at the data before writing. test customer CSV has nothing to do with restaurants. it is all information about customer. And when you finally spend some time with data you will realise the same customer has a verified and and unverified detail which should be removed. As you won't get same number of rows as sample submission. But again for this you have to spend time with the data before commenting.
 
-The locations have been obscured, in a fairly reasonable way. However, the data as it arrived from the real world had all sorts of complications - sometimes latitude and longitude were the same value, sometimes they were both 0 (which got mapped by the processing to a weird coordinate)... If this happened on a job you'd likely ask for a meeting with the app/database folks to have a chat about how mangled the locations are! As it is this is all we've got :)
+Q) Some of the customerID's (CID) in the Sample Submission file are not present in the test_customer file.
+
+A) Hi Suraj, Yes. But full test customer detail is obtained when you merge test customer and test location, after removing duplicates as I have mentioned. After merging if you find set intersection of merged ID and submission file, you will get all IDs of the sample in the test.
+
+Q) Just started looking at the data of this competition - nice real-world type of data. But the location information is totally non-sensicle. I know that the coordinates have somehow been obscured to protect the customers, but if you look at the spread of lat and long it's all over the place, and even the locations _very_ far away from any vendors have valid orders, which does not make sense either.
+
+A) The locations have been obscured, in a fairly reasonable way. However, the data as it arrived from the real world had all sorts of complications - sometimes latitude and longitude were the same value, sometimes they were both 0 (which got mapped by the processing to a weird coordinate)... If this happened on a job you'd likely ask for a meeting with the app/database folks to have a chat about how mangled the locations are! As it is this is all we've got :)
 
 As Flitx mentioned, you could try to use other features. But we included this in case it's possible to get something useful. I'd suggest maybe clustering and excluding the glitchy values somehow, or doing as you've done and just looking at a vendor_distance feature but again excluding anything unreasonable. Might still have some predictive power.
 
-The workaround is to treat this like a cold-visitor recommendation. Try to cluster customers based on features they have in common, then recommend the most popular restaurants in train for the customers in test in the same cluster.
+Q) In the description of the challenge, "the objective ... is to build a recommendation engine to predict what restaurants customers are most likely to order from given ... the customer order history." However, we are given no indication of the order history of customers in the test set. In fact, there are zero customers in common between the training set and the test set. How have you worked around this?
 
-Another way is to treat it strictly as a classification problem.
-
+A) The workaround is to treat this like a cold-visitor recommendation. Try to cluster customers based on features they have in common, then recommend the most popular restaurants in train for the customers in test in the same cluster.Another way is to treat it strictly as a classification problem.
 
 
 ## Rules
