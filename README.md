@@ -166,7 +166,7 @@ Other rules can be found here
 
 https://zindi.africa/competitions/akeed-restaurant-recommendation-challenge
 
-<img src="../Train.png" alt="alt text" width="1000"/>
+<img src="images/Train.png" alt="alt text" width="1000"/>
 
 
 
