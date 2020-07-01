@@ -165,3 +165,8 @@ We reserve the right to update these rules at any time.
 Other rules can be found here
 
 https://zindi.africa/competitions/akeed-restaurant-recommendation-challenge
+
+<img src="../Train.png" alt="alt text" width="1000"/>
+
+
+
