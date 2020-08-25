@@ -8,6 +8,8 @@ The objective of this competition is to build a recommendation engine to predict
 
 This solution will allow Akeed, an app-based food delivery service in Oman, to customise restaurant recommendations for each of their customers and ensure a more positive overall user experience.
 
+Received an F1 score of 0.0536257482092042 using KNN and SMOTE (resampling) technique 
+
 ## Data
 
 There are ~10,000 customers in the test set. These are the customers you will need to recommend a vendor to. Each customer can order from multiple locations (LOC_NUM).
@@ -28,7 +30,7 @@ The objective of this competition is to build a recommendation engine to predict
 ## Data Cleaning and Pre-processing
 ### Pre-processing
 Since the recommendation engine requires likelihood of order from given the customer ID, customer location and Vendor ID, in the format CID X LOC_NUM X VENDOR, some data pre-processing steps are required for both testing and training data. 
-For preparing test data, duplicates are sropped for test customers which are not verified. Then, test customer and location are merged and thereafter, for each row of test all rows of vendors are added. Finally id column is created using the three columns mentioned in the name of sample submission id. As a check, the number of rows in the test match the sample submission.
+For preparing test data, duplicates are dropped for test customers which are not verified. Then, test customer and location are merged and thereafter, for each row of test all rows of vendors are added. Finally id column is created using the three columns mentioned in the name of sample submission id. As a check, the number of rows in the test match the sample submission.
 Same steps for training dataset are followed.
 Orders table is used to make target. If ID of train is present in orders then target is 1,if not then 0.
 ### Cleaning
@@ -80,6 +82,6 @@ Where 1 indicates that a customer will order from that restaurant and 0 that the
 
 <img src="images/Train.png" alt="alt text" width="1000"/>
 
-## Results
+
 
 
