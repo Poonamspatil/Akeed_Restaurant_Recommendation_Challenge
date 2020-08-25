@@ -25,11 +25,28 @@ The objective of this competition is to build a recommendation engine to predict
 * VariableDefinitions.txt - Variable definitions for the datasets
 * SampleSubmission.csv - is an example of what your submission file should look like. The order of the rows does not matter, but the names of CID X LOC_NUM X VENDOR must be correct. The column "target" is your prediction. The submission file is large so please allow up to 30 minutes for your score to reflect.
 
-## Data Cleaning
+## Data Cleaning and Pre-processing
+### Pre-processing
+Since the recommendation engine requires likelihood of order from given the customer ID, customer location and Vendor ID, in the format CID X LOC_NUM X VENDOR, some data pre-processing steps are required for both testing and training data. 
+For preparing test data, duplicates are sropped for test customers which are not verified. Then, test customer and location are merged and thereafter, for each row of test all rows of vendors are added. Finally id column is created using the three columns mentioned in the name of sample submission id. As a check, the number of rows in the test match the sample submission.
+Same steps for training dataset are followed.
+Orders table is used to make target. If ID of train is present in orders then target is 1,if not then 0.
+### Cleaning
 
 ## Model Building
+Multiple approaches were used at dataset level (resampling strategies and feature selection techniques) and at algorithm level ( Logistic, KNN, Random Forest, Clustering, gradient Boosting). Following two approaches gave best/similar results.
+
+### Approach 1 KNN with SMOTE(resampling) Strategy
+KNN approach is used for implementing recommendation system. However, the dataset has highly imbalanced data distribution. Supervised ML techniques such as KNN, Decision Tree, Logistic Regression have a bias towards the majority class, and tend to ignore the minority class due to which they only predict majority class. There are two approaches followed to resolve this challenge, first on data level and second on algorithm level.
+
+1. On data level, resampling techniques were applied to get balanced distribution, like undersampling, Smote and Near-miss. Smote (synthetic minority oversampling technique) yielded better results with KNN out of all which is presented in the notebook wherein synthetic training records are generated.
+2. On algorithm level, hyperparameter selection and tuning was done along with threshold adjustments.
+Python Notebook presents the code for the model used.
 
 ## Model Performance
+### Approach 1 KNN with SMOTE(resampling) Strategy
+After running several iterations of model and resampling strategies we obtained best results with KNN using Smote resampling and cosine metric.
+The best F1 score we achieved is 0.0536257482092042 (with 0.8 threshold). 
 
 ## Evaluation
 
