@@ -2,7 +2,7 @@
 
 Repo to collaborate on the Akeed restaurant recommendation challenge.
 
-## Objective
+## Overview
 
 The objective of this competition is to build a recommendation engine to predict what restaurants customers are most likely to order from given the customer location, restaurant information, and the customer order history.
 
@@ -24,6 +24,12 @@ The objective of this competition is to build a recommendation engine to predict
 * vendors.csv - vendors that customers can order from.
 * VariableDefinitions.txt - Variable definitions for the datasets
 * SampleSubmission.csv - is an example of what your submission file should look like. The order of the rows does not matter, but the names of CID X LOC_NUM X VENDOR must be correct. The column "target" is your prediction. The submission file is large so please allow up to 30 minutes for your score to reflect.
+
+## Data Cleaning
+
+## Model Building
+
+## Model Performance
 
 ## Evaluation
 
