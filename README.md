@@ -1,10 +1,8 @@
-# Akeed_Restaurant_Recommendation_Challenge
-
-Repo to collaborate on the Akeed restaurant recommendation challenge.
+# Restaurant_Recommendation_Challenge
 
 ## Overview
 
-The objective of this competition is to build a recommendation engine to predict what restaurants customers are most likely to order from given the customer location, restaurant information, and the customer order history.
+The objective of this project is to build a recommendation engine to predict what restaurants customers are most likely to order from given the customer location, restaurant information, and the customer order history.
 
 This solution will allow Akeed, an app-based food delivery service in Oman, to customise restaurant recommendations for each of their customers and ensure a more positive overall user experience.
 
